@@ -9,7 +9,7 @@ A react + TailwindCSS frontend for finance-pal-query. This UI lets users to uplo
 ## Getting Started
 1. Clone the repo
 ```
-   git clone https://github.com/your-username/finance-pal-ui.git
+   git clone https://github.com/huhnbp/finance-pal-ui.git
    cd finance-pal-ui
 ```
 2. Install dependencies
