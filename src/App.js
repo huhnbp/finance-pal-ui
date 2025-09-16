@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import UploadForm from "./components/UploadForm";
+import TransactionsTable from "./components/TransactionsTable";
+import SummaryCard from "./components/SummaryCard";
 
-function App() {
+const App = () => {
+  const [transactions, setTransactions] = useState([]);
+  const [analysis, setAnalysis] = useState("");
+
+  const handleAnalysis = (data) => {
+    setTransactions(data.transactions || []);
+    setAnalysis(data.analysis || "");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="min-h-screen bg-gray-100 p-8 flex flex-col items-center">
+      <h1 className="text-3xl font-bold mb-6">Personal Finance Copilot</h1>
+      <UploadForm onAnalysis={handleAnalysis} />
+      <TransactionsTable transactions={transactions} />
+      <SummaryCard analysis={analysis} />
     </div>
   );
-}
+};
 
 export default App;
